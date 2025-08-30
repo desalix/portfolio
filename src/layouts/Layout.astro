@@ -1,0 +1,26 @@
+---
+import "../styles/global.css";
+import Navbar from "../components/Navbar.astro"
+import Footer from "../components/Footer.astro"
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<title>Diego De Salas - Portfolio</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link 
+		href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Lobster&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap" 
+		rel="stylesheet">
+	</head>
+
+	<body>
+		<Navbar />
+		<slot />
+		<Footer />
+	</body>
+</html>
