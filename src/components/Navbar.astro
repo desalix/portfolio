@@ -1,9 +1,13 @@
+---
+import Night_mode from "../assets/night_mode.svg"
+---
+
 <nav class="fixed top-6 left-1/2 animate-slide-in-top -translate-x-1/2 z-50 max-w-3xl w-full">
   <div class="bg-black/80 backdrop-blur-md border-2 border-white/60 rounded-full px-8 py-4 shadow-xl shadow-white/15">
-    <div class="grid grid-cols-[1fr_6fr_1fr] items-center justify-between">
+    <div class="flex flex-row items-center justify-between">
       <!-- Left HOME button -->
       <div class="text-center">
-        <a href="/" class="text-xl text-gray-400 hover:text-white transition-all duration-200">
+        <a href="/" class="text-gray-400 hover:text-white transition-all duration-200">
           Home
         </a>
       </div>
@@ -31,10 +35,16 @@
       </div>
 
       <!-- Right HOME button -->
-      <div class="text-center">
-        <button class="text-gray-400 hover:text-white transition-all duration-200">
-          Light mode
-        </button>
+      <div class="flex flex-row text-center gap-x-4">
+        <div>
+          <button class="text-gray-400 hover:text-white transition-all duration-200">
+            Light mode
+          </button>
+        </div>
+        <div>
+          <Night_mode/>
+        </div>
+
       </div>
     </div>
   </div>
