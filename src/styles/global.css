@@ -1,16 +1,27 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @plugin "@midudev/tailwind-animations";
+
+
+@utility font-display{
+    font-family: 'Lora', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+}
+
+@utility font-body{
+    font-family: 'Inter', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+}
 
 @layer base {
     body {
-        @apply dark:bg-black bg-white dark:text-gray-300 text-gray-800 scroll-smooth;
+        @apply font-body dark:bg-gray-950 bg-gray-100/80 dark:text-gray-300 text-gray-800 scroll-smooth;
     }
 }
 
 @layer components{
     .nav-link{
       @apply dark:text-gray-400 text-gray-700 px-4 py-2 transition-all duration-300 dark:hover:text-white hover:text-black
-                relative z-10 focus:text-white;
+                relative z-10 dark:focus:text-white focus:text-black;
     }
 }

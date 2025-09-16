@@ -13,20 +13,20 @@ import Footer from "../components/Footer.astro"
 		<title>Diego De Salas - Portfolio</title>
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link 
-		href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Lobster&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap" 
-		rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
 
-		<script>
-			if (
-			  localStorage.theme === 'dark' ||
-			  (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
-			) {
-			  document.documentElement.classList.add('dark');
-			} else {
-			  document.documentElement.classList.remove('dark');
-			}
-		  </script>
+		<script is:inline>
+			(() => {
+			  try {
+				const saved = localStorage.getItem("theme"); // "light" | "dark" | null
+				const prefersDark = matchMedia("(prefers-color-scheme: dark)").matches;
+				const dark = saved ? saved === "dark" : prefersDark;
+				const root = document.documentElement;
+				root.classList.toggle("dark", dark);
+				root.style.colorScheme = dark ? "dark" : "light"; // native UI (forms, scrollbars)
+			  } catch {}
+			})();
+		</script>
 	</head>
 
 	<body>
