@@ -90,14 +90,17 @@ import Light_mode from "../assets/light_mode.svg"
   });
 </script>
 
-<script>
-  document.getElementById('theme-selector')?.addEventListener('click', () => {
-    if (localStorage.theme === 'dark') {
-      localStorage.theme = 'light';
-      document.documentElement.classList.remove('dark');
-    } else {
-      localStorage.theme = 'dark';
-      document.documentElement.classList.add('dark');
-    }
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const themeSelector = document.getElementById('theme-selector');
+    themeSelector?.addEventListener('click', () => {
+      if (localStorage.theme === 'dark') {
+        localStorage.theme = 'light';
+        document.documentElement.classList.remove('dark');
+      } else {
+        localStorage.theme = 'dark';
+        document.documentElement.classList.add('dark');
+      }
+    });
   });
 </script>
