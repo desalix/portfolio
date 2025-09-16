@@ -5,7 +5,7 @@ import Footer from "../components/Footer.astro"
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
@@ -16,12 +16,22 @@ import Footer from "../components/Footer.astro"
 		<link 
 		href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Lobster&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap" 
 		rel="stylesheet">
+
+		<script>
+			if (
+			  localStorage.theme === 'dark' ||
+			  (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+			) {
+			  document.documentElement.classList.add('dark');
+			} else {
+			  document.documentElement.classList.remove('dark');
+			}
+		  </script>
 	</head>
 
 	<body>
 		<Navbar />
 		<slot />
 		<Footer />
-		<script type="module" src="/src/scripts/scroll-animations.js" defer></script>
 	</body>
 </html>

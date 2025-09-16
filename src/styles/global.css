@@ -4,13 +4,13 @@
 
 @layer base {
     body {
-        @apply bg-black text-gray-300 scroll-smooth;
+        @apply dark:bg-black bg-white dark:text-gray-300 text-gray-800 scroll-smooth;
     }
 }
 
 @layer components{
     .nav-link{
-      @apply text-gray-400 px-4 py-2 transition-all duration-300 hover:text-white
+      @apply dark:text-gray-400 text-gray-700 px-4 py-2 transition-all duration-300 dark:hover:text-white hover:text-black
                 relative z-10 focus:text-white;
     }
 }
