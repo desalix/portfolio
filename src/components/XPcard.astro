@@ -1,0 +1,41 @@
+---
+import Labels from '../components/labels.astro'
+import Label from '../components/labels.astro'
+
+
+export interface Props {
+  imgsrc: string
+  imgalt: string
+  cardtitle: string
+  cardtext: string
+  labels: string[]
+}
+
+const { imgsrc, imgalt, cardtitle, cardtext, labels = [] } = Astro.props
+---
+
+<div class="xp-card">
+    <div class="m-6">
+        <img 
+        src={imgsrc} 
+        alt={imgalt}
+        class="rounded-xl"
+        >
+    </div>
+
+    <div class="m-6 space-y-4">
+        <h3 class="font-semibold">
+            {cardtitle}
+        </h3>
+    
+        <p class="text-justify">
+            {cardtext}
+        </p>
+    </div>
+
+    <div class="flex flex-row flex-wrap justify-center items-center mt-12 gap-3 p-4">
+        {labels.map(label => (
+            <Label aux={label} />
+        ))}
+    </div>
+</div>

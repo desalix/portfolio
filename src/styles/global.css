@@ -2,20 +2,24 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-@plugin "@midudev/tailwind-animations";
-
-
 @utility font-display{
-    font-family: 'Lora', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+    font-family: 'Lora', sans-serif, system-ui, -apple-system;
 }
 
 @utility font-body{
-    font-family: 'Inter', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+    font-family: 'Inter', sans-serif, system-ui, -apple-system;
 }
 
 @layer base {
     body {
-        @apply font-body dark:bg-gray-950 bg-gray-100/80 dark:text-gray-300 text-gray-800 scroll-smooth;
+        @apply font-body dark:text-gray-300 text-gray-800 scroll-smooth
+        bg-cover bg-center bg-fixed;
+
+        background-image: url('/BGs/bg-light.png');
+    }
+
+    .dark body{
+        background-image: url('/BGs/bg-dark.png');
     }
 }
 
@@ -26,18 +30,19 @@
     }
 
     .socials{
-        @apply flex w-9 h-9 items-center justify-center rounded-lg bg-gray-300 ring-gray-500 transition-all hover:ring-2 dark:bg-gray-900 dark:ring-gray-600
+        @apply flex w-9 h-9 items-center justify-center rounded-lg bg-gray-300 ring-gray-500 transition-all hover:ring-1 dark:bg-gray-800 dark:ring-gray-600
     }
 
     .socials-svg{
         @apply flex w-6 h-6 items-center justify-center
     }
 
-    /* Center anchor content within the socials box to avoid inline baseline offsets */
-    .socials > a{
-        @apply flex items-center justify-center w-full h-full;
+    .socials-footer{
+        @apply w-5 h-5 transition-transform duration-300 hover:-translate-y-2;
     }
-    .socials > a > img{
-        @apply block;
+
+    .xp-card{
+        @apply bg-white dark:bg-blue-950 text-black dark:text-white rounded-xl hover:-translate-y-2 hover:shadow-xl shadow-black/30 dark:shadow-gray-600 transition-all duration-300;
     }
+
 }

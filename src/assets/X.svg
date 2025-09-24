@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+  <defs>
+    <style>
+      .color { fill: #141416; } /* light */
+      @media (prefers-color-scheme: dark) {
+        .color { fill: #ffffff; } /* dark */
+      }
+    </style>
+  </defs>
+  <path class="color" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.25l-5.214-6.817L5.04 21.75H1.729l7.73-8.835L1.25 2.25H8.08l4.713 6.231 5.451-6.231zm-1.162 17.52h1.833L7.084 4.126H5.117l11.965 15.644z"/>
+</svg>

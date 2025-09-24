@@ -1,16 +1,115 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
+import XPcard from '../components/XPcard.astro';
+import Timeline_circle from '../assets/timeline_circle.svg'
 ---
 
 <Layout>
-	<div class="min-h-[40rem] mt-32 max-w-6xl mx-auto px-4 py-6">
+	<div class="min-h-[40rem] mt-32 max-w-7xl mx-auto px-4 py-6">
 
 		<div class="main-content">
 			<Card />
-			
+			<div id="experience" class="mt-24">
+				<h2 class="font-display font-bold text-4xl mb-8">Experience and Projects</h2>
+				<div class="grid grid-cols-3 justify-center items-center gap-8">
+					<XPcard 
+					imgsrc="/media/asegramar.png" 
+					imgalt="Asegramar" 
+					cardtitle="Asegramar - Administration" 
+					cardtext="At Asegramar, I gained experience in administrative procedures and file management while working in a collaborative environment. This role helped me strengthen my problem-solving and communication skills."
+					labels = {[
+						"Administration",
+						"File Management",
+						"Teamwork",
+						"Comunication",
+						"Problem-Solving"
+					]}
+					/>
+					<XPcard 
+					imgsrc="/media/smithers.png" 
+					imgalt="Smithers" 
+					cardtitle="Smithers - Web Development" 
+					cardtext="Developed a responsive website for a restaurant using Astro and Tailwind CSS. This project allowed me to strengthen my skills in UI design, optimization, responsive development, and also applying SEO practices. Completing it gave me valuable hands-on experience and deepened my interest in frontend development."
+					labels = {[
+						"Astro",
+						"Tailwind CSS",
+						"Self-Learning",
+						"SEO",
+						"Resposive-Design",
+						"Optimization",
+						"UI Designing"
+					]}
+					/>
+					<XPcard 
+					imgsrc="/media/asegramar.png" 
+					imgalt="Asegramar" 
+					cardtitle="Asegramar - Administrator" 
+					cardtext="Worked as an internship which helped me develop my skills in a teamwork enviroment, and learn administration procedures that have made me enrich myself as a worker."
+					labels = {[
+						"Administration",
+						"File Management",
+						"Teamwork",
+						"Comunication",
+						"Problem-Solving"
+					]}
+					/>
+				</div>
+			</div>
 
-	   	</div>
 
+			<div id="studies" class="mt-24">
+				<h2 class="font-display font-bold text-4xl mb-12">Academic Formation</h2>
+				<ol class="relative border-s border-gray-700 dark:border-gray-200 max-w-3xl mx-auto">
+					<li class="mb-10 ms-8">
+						<div class="absolute w-4 h-4 bg-gray-300 rounded-full mt-2 -start-2 border border-black dark:border-white dark:bg-gray-700"></div>
+						<div class="flex justify-between font-display font-semibold text-2xl mb-6">
+							<h3>
+								Politécnica de Madrid - UPM, Madrid 
+							</h3>
+							<p class="text-lg text-gray-600 dark:text-gray-400">2024 - Present</p>
+							
+						</div>
+						<p>
+							I am currently pursuing a double degree in Computer Engineering and Business Administration at Universidad Politécnica de Madrid. 
+							This program allows me to develop strong technical problem-solving skills while also gaining a strategic perspective in management
+							and economics, preparing me to bridge the gap between technology and business.
+						</p>
+					</li>
+					<li class="mb-10 ms-8">
+						<div class="absolute w-4 h-4 bg-gray-300 rounded-full mt-2 -start-2 border border-black dark:border-white dark:bg-gray-700"></div>
+						<div class="flex justify-between font-display font-semibold text-2xl mb-6">
+							<h3>
+								Prospect Mountain High school, NH, USA 
+							</h3>
+							<p class="text-lg text-gray-600 dark:text-gray-400">2022-2023</p>
+							
+						</div>
+						<p>
+							I completed my high school studies in New Hampshire, USA, 
+							an experience that significantly strengthened my English proficiency and cultural adaptability. 
+							Living abroad taught me to be independent, responsible, and self-sufficient, 
+							while also broadening my global outlook and ability to connect with people from diverse backgrounds.
+						</p>
+					</li>
+					<li class="mb-10 ms-8">
+						<div class="absolute w-4 h-4 bg-gray-300 rounded-full mt-2 -start-2 border border-black dark:border-white dark:bg-gray-700"></div>
+						<div class="flex justify-between font-display font-semibold text-2xl mb-6">
+							<h3>
+								IES Guadalpín, Marbella 
+							</h3>
+							<p class="text-lg text-gray-600 dark:text-gray-400">2021-2022</p>
+							
+						</div>
+						<p>
+							During my time at IES Guadalpín in Marbella, I focused on mathematics and technology, 
+							building a solid academic foundation for my future double degree. 
+							This period was also an important personal experience, as it gave me the opportunity to live in a new city 
+							and adapt to a different environment, further developing my resilience and adaptability.
+						</p>
+					</li>
+				</ol>
+			</div>
+		</div>
 	</div>
 </Layout>
