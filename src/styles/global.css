@@ -29,12 +29,16 @@
                 relative z-10 dark:focus:text-white focus:text-black;
     }
 
+    .section-title{
+        @apply font-display font-bold md:text-4xl text-3xl mb-12;
+    }
+
     .socials{
-        @apply flex w-9 h-9 items-center justify-center rounded-lg bg-gray-300 ring-gray-500 transition-all hover:ring-1 dark:bg-gray-800 dark:ring-gray-600
+        @apply flex md:w-9 md:h-9 w-7 h-7 items-center justify-center rounded-lg bg-gray-300 ring-gray-500 transition-all hover:ring-1 dark:bg-gray-800 dark:ring-gray-600
     }
 
     .socials-svg{
-        @apply flex w-6 h-6 items-center justify-center
+        @apply flex md:w-7 md:h-7 w-5 h-5 items-center justify-center
     }
 
     .socials-footer{
@@ -42,7 +46,18 @@
     }
 
     .xp-card{
-        @apply bg-white dark:bg-blue-950 text-black dark:text-white rounded-xl hover:-translate-y-2 hover:shadow-xl shadow-black/30 dark:shadow-gray-600 transition-all duration-300 max-w-sm;
+        @apply bg-white dark:bg-blue-950/30 text-black dark:text-white rounded-xl hover:-translate-y-2 hover:shadow-xl shadow-black/30 dark:shadow-gray-700 transition-all duration-300 max-w-sm;
     }
 
+    .timeline-title{
+        @apply font-display font-semibold md:text-2xl text-lg;
+    }
+
+    .timeline-date{
+        @apply md:text-lg text-sm text-gray-600 dark:text-gray-400;
+    }
+
+    .timeline-dot{
+        @apply absolute w-4 h-4 bg-gray-300 rounded-full mt-2 -start-2 border border-black dark:border-white dark:bg-gray-700;
+    }
 }

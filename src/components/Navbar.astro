@@ -1,7 +1,6 @@
 
-
-<nav class="fixed z-1 inset-x-0 mx-auto px-8 top-6 max-w-3xl w-full">
-  <div class="dark:bg-black/80 bg-white/80 backdrop-blur-xs border-2 dark:border-white/60 border-black/80 rounded-full px-6 py-2 shadow-xl shadow-black/15 dark:shadow-white/15">
+<nav class="hidden sm:inline fixed z-1 inset-x-0 mx-auto px-8 top-6 max-w-3xl w-full">
+  <div class="dark:bg-black/80 bg-white/80 backdrop-blur-xs border-2 dark:border-white/40 border-black/80 rounded-full px-6 py-2 shadow-xl shadow-black/15 dark:shadow-white/15">
     <div class="flex flex-row items-center justify-between">
       <!-- Left HOME button -->
       <div class="text-center">
@@ -54,26 +53,25 @@
           />
         </button>
       
-        <script>
-          const root = document.documentElement;
-        
-          const setTheme = (dark: boolean) => {
-            root.classList.toggle("dark", dark);
-            localStorage.setItem("theme", dark ? "dark" : "light");
-            root.style.colorScheme = dark ? "dark" : "light";
-          };
-        
-          document.getElementById("theme-toggle")?.addEventListener("click", () => {
-            setTheme(!root.classList.contains("dark"));
-          });
-        </script>        
         
     </div>
   </div>
 </nav>
 
-
 <script>
+  const root = document.documentElement;
+
+  const setTheme = (dark: boolean) => {
+    root.classList.toggle("dark", dark);
+    localStorage.setItem("theme", dark ? "dark" : "light");
+    root.style.colorScheme = dark ? "dark" : "light";
+  };
+
+  document.getElementById("theme-toggle")?.addEventListener("click", () => {
+    setTheme(!root.classList.contains("dark"));
+  });
+
+
   document.addEventListener('DOMContentLoaded', () => {
     const wrapper = document.querySelector<HTMLElement>('[data-hover-pill]');
     if (!wrapper) return;

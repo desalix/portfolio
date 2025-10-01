@@ -1,7 +1,6 @@
 ---
 import Label from '../components/labels.astro'
 
-
 export interface Props {
   imgsrc: string
   imgalt: string
@@ -23,14 +22,9 @@ const { imgsrc, imgalt, cardtitle, cardtext, labels = [] } = Astro.props
     </div>
 
     <div class="m-6 space-y-4">
-        <div class="flex justify-between items-baseline">
-            <h3 class="font-semibold">
-                {cardtitle}
-            </h3>
-            <p class="text-xs opacity-80">
-                July 2024 - January 2025
-            </p>
-        </div>
+        <h3 class="font-semibold">
+            {cardtitle}
+        </h3>
     
         <p class="text-justify">
             {cardtext}
