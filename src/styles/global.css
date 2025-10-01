@@ -42,7 +42,7 @@
     }
 
     .xp-card{
-        @apply bg-white dark:bg-blue-950 text-black dark:text-white rounded-xl hover:-translate-y-2 hover:shadow-xl shadow-black/30 dark:shadow-gray-600 transition-all duration-300;
+        @apply bg-white dark:bg-blue-950 text-black dark:text-white rounded-xl hover:-translate-y-2 hover:shadow-xl shadow-black/30 dark:shadow-gray-600 transition-all duration-300 max-w-sm;
     }
 
 }

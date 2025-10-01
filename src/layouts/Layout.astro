@@ -18,12 +18,12 @@ import Footer from "../components/Footer.astro"
 		<script is:inline>
 			(() => {
 			  try {
-				const saved = localStorage.getItem("theme"); // "light" | "dark" | null
+				const saved = localStorage.getItem("theme");
 				const prefersDark = matchMedia("(prefers-color-scheme: dark)").matches;
 				const dark = saved ? saved === "dark" : prefersDark;
 				const root = document.documentElement;
 				root.classList.toggle("dark", dark);
-				root.style.colorScheme = dark ? "dark" : "light"; // native UI (forms, scrollbars)
+				root.style.colorScheme = dark ? "dark" : "light";
 			  } catch {}
 			})();
 		</script>

@@ -2,7 +2,6 @@
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 import XPcard from '../components/XPcard.astro';
-import Timeline_circle from '../assets/timeline_circle.svg'
 ---
 
 <Layout>
@@ -12,17 +11,17 @@ import Timeline_circle from '../assets/timeline_circle.svg'
 			<Card />
 			<div id="experience" class="mt-24">
 				<h2 class="font-display font-bold text-4xl mb-8">Experience and Projects</h2>
-				<div class="grid grid-cols-3 justify-center items-center gap-8">
+				<div class="flex flex-col lg:grid lg:grid-cols-3 justify-center items-center gap-8">
 					<XPcard 
 					imgsrc="/media/asegramar.png" 
-					imgalt="Asegramar" 
-					cardtitle="Asegramar - Administration" 
-					cardtext="At Asegramar, I gained experience in administrative procedures and file management while working in a collaborative environment. This role helped me strengthen my problem-solving and communication skills."
+					imgalt="Finsaver app" 
+					cardtitle="Finsaver - Finance" 
+					cardtext="Finsaver was born from the idea of learning and practicing new skills. It's an app created for the facilitation of spend acknowledge and saving money. It's developed in Java (OOP) and it uses JavaFX for the UX/UI. This work has definetly helped me proof my skills and confront a real project."
 					labels = {[
-						"Administration",
-						"File Management",
-						"Teamwork",
-						"Comunication",
+						"Java",
+						"JavaFX",
+						"OOP",
+						"UI/UX",
 						"Problem-Solving"
 					]}
 					/>
