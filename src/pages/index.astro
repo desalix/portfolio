@@ -1,71 +1,34 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
-import XPcard from '../components/XPcard.astro';
-import Timeline from '../components/Timeline.astro';
+import Experience from '../components/Experience.astro';
+import Projects from '../components/Projects.astro';
+import Academics from '../components/Academics.astro';
+import Technologies from '../components/Technologies.astro';
 ---
 
 <Layout>
-	<div class="min-h-[40rem] mt-32 max-w-7xl mx-auto px-4 py-6">
+	<div class="mt-32 max-w-7xl mx-auto px-4 py-6">
+		<Card />
 
-		<div class="main-content">
-			<Card />
-			<div id="experience" class="mt-24">
-				<h2 class="section-title">Experience</h2>
+		<div id="experience" class="mt-24">
+			<h2 class="section-title">Experience</h2>
+			<Experience />
+		</div>
 
-			</div>
-			<div id="projects" class="mt-24">
-				<h2 class="section-title">Projects</h2>
-				<div class="flex flex-wrap justify-center items-center gap-8">
-					<XPcard 
-					imgsrc="/media/asegramar.png" 
-					imgalt="Finsaver app" 
-					cardtitle="Finsaver - Finance" 
-					cardtext="Finsaver was born from the idea of learning and practicing new skills. It's an app created for the facilitation of spend acknowledge and saving money. It's developed in Java (OOP) and it uses JavaFX for the UX/UI. This work has definetly helped me proof my skills and confront a real project."
-					labels = {[
-						"Java",
-						"JavaFX",
-						"OOP",
-						"UI/UX",
-						"Problem-Solving"
-					]}
-					/>
-					<XPcard 
-					imgsrc="/media/smithers.png" 
-					imgalt="Smithers" 
-					cardtitle="Smithers - Web Development" 
-					cardtext="Developed a responsive website for a restaurant using Astro and Tailwind CSS. This project allowed me to strengthen my skills in UI design, optimization, responsive development, and also applying SEO practices. Completing it gave me valuable hands-on experience and deepened my interest in frontend development."
-					labels = {[
-						"Astro",
-						"Tailwind CSS",
-						"Self-Learning",
-						"SEO",
-						"Resposive-Design",
-						"Optimization",
-						"UI Designing"
-					]}
-					/>
-					<XPcard 
-					imgsrc="/media/asegramar.png" 
-					imgalt="Asegramar" 
-					cardtitle="Asegramar - Administrator" 
-					cardtext="Worked as an internship which helped me develop my skills in a teamwork enviroment, and learn administration procedures that have made me enrich myself as a worker."
-					labels = {[
-						"Administration",
-						"File Management",
-						"Teamwork",
-						"Comunication",
-						"Problem-Solving"
-					]}
-					/>
-				</div>
-			</div>
+		<div id="projects" class="mt-24">
+			<h2 class="section-title">Projects</h2>
+			<Projects />
+		</div>
 
+		<div id="studies" class="mt-24">
+			<h2 class="section-title">Academic Formation</h2>
+			<Academics />
+		</div>
 
-			<div id="studies" class="mt-24">
-				<h2 class="section-title">Academic Formation</h2>
-				<Timeline />
-			</div>
+		<div id="technologies" class="mt-24 mb-18">
+    		<h2 class="section-title">Technologies</h2>	
+			<Technologies />
 		</div>
 	</div>
 </Layout>

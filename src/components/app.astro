@@ -1,0 +1,13 @@
+---
+const {route, appname, appclass} = Astro.props
+---
+
+
+<div>
+    <img
+    src={route}
+    alt={appname}
+    class={appclass}
+    >
+    <p class="text-sm md:text-base text-gray-800 dark:text-gray-300 text-center mt-2">{appname}</p>
+</div>
