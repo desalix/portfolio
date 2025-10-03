@@ -50,7 +50,7 @@
     }
 
     .timeline-title{
-        @apply font-display font-semibold md:text-2xl text-lg;
+        @apply font-semibold md:text-2xl text-lg;
     }
 
     .timeline-date{

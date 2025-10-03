@@ -2,12 +2,14 @@
 const {route, appname, appclass} = Astro.props
 ---
 
-
-<div>
-    <img
-    src={route}
-    alt={appname}
-    class={appclass}
-    >
+<div class="group inline-flex flex-col items-center">
+    <div class="rounded-lg p-3 transition-all duration-200 ease-out transform hover:-translate-y-0.5 hover:border-gray-400/60 dark:hover:border-white/20">
+        <img
+        src={route}
+        alt={appname}
+        class:list={[appclass, "transition-all duration-200 ease-out group-hover:scale-110 group-hover:opacity-100 opacity-90"]}
+        >
+    </div>
     <p class="text-sm md:text-base text-gray-800 dark:text-gray-300 text-center mt-2">{appname}</p>
+    
 </div>
