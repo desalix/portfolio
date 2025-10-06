@@ -11,6 +11,9 @@
 }
 
 @layer base {
+    html {
+        @apply scroll-smooth;
+    }
     body {
         @apply font-body dark:text-gray-300 text-gray-800 scroll-smooth
         bg-cover bg-center bg-fixed;
