@@ -1,4 +1,10 @@
 
+---
+import XIcon from '../assets/X.svg';
+import LinkedinIcon from '../assets/Linkedin.svg';
+import GitHubIcon from '../assets/GitHub.svg';
+---
+
 
 <div class="rounded-lg px-4 py-4 transition-all duration-200 max-w-4xl mx-auto borderrounded-xl border border-gray-300/60 dark:border-gray-600/40 shadow-lg dark:shadow-white/15">
 
@@ -7,11 +13,11 @@
             <h2 class="font-display md:text-3xl text-2xl dark:text-white text-black font-bold">Diego De Salas</h2>
             <ul class="flex flex-row items-center justify-center space-x-2 px-4 py-2">
 
-                <a href=""><li class="socials"><img src="../src/assets/X.svg" alt="Twitter" class="socials-svg"></li></a>
+                <a href=""><li class="socials"><img src={XIcon.src} alt="Twitter" class="socials-svg"></li></a>
 
-                <a href=""><li class="socials"><img src="../src/assets/Linkedin.svg" alt="LinkedIn" class="socials-svg"></li></a>
+                <a href=""><li class="socials"><img src={LinkedinIcon.src} alt="LinkedIn" class="socials-svg"></li></a>
 
-                <a href=""><li class="socials"><img src="../src/assets/GitHub.svg" alt="Github" class="socials-svg"></li></a>
+                <a href=""><li class="socials"><img src={GitHubIcon.src} alt="Github" class="socials-svg"></li></a>
                 
             </ul>
         </div>

@@ -25,3 +25,5 @@ pnpm-debug.log*
 
 # txt personal
 texto.txt
+# Local Netlify folder
+.netlify

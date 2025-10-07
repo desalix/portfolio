@@ -1,66 +1,80 @@
 ---
 import App from "./app.astro"
+
+// Import all the SVG icons
+import WordIcon from '../assets/appicons/word.svg';
+import ExcelIcon from '../assets/appicons/excel.svg';
+import PowerpointIcon from '../assets/appicons/powerpoint.svg';
+import AccessIcon from '../assets/appicons/access.svg';
+import JavaIcon from '../assets/appicons/java.svg';
+import PythonIcon from '../assets/appicons/python.svg';
+import GitIcon from '../assets/appicons/git.svg';
+import FigmaIcon from '../assets/appicons/figma.svg';
+import Html5Icon from '../assets/appicons/html5.svg';
+import CssIcon from '../assets/appicons/css.svg';
+import TailwindIcon from '../assets/appicons/tailwindcss.svg';
+import MysqlIcon from '../assets/appicons/mysql.svg';
 ---
 
 
 <div class="grid grid-cols-3 lg:md:grid-cols-4 place-items-center sm:justify-between justify-center items-center max-w-2xl sm:gap-y-10 sm:gap-x-9 gap-y-4 mx-auto sm:px-6 sm:py-8 px-2 py-6">
     <App 
-    route="/src/assets/appicons/word.svg"
+    route={WordIcon.src}
     appname="Word"
     appclass="technologies"
     />
     <App 
-    route="/src/assets/appicons/excel.svg"
+    route={ExcelIcon.src}
     appname="Excel"
     appclass="technologies"
     />
     <App 
-    route="/src/assets/appicons/powerpoint.svg"
+    route={PowerpointIcon.src}
     appname="Powerpoint"
     appclass="technologies"
     />
     <App 
-    route="/src/assets/appicons/access.svg"
+    route={AccessIcon.src}
     appname="Access"
     appclass="technologies"
     />
     <App 
-    route="/src/assets/appicons/java.svg"
+    route={JavaIcon.src}
     appname="Java"
     appclass="technologies"
     />
     <App 
-    route="/src/assets/appicons/python.svg"
+    route={PythonIcon.src}
     appname="Python"
     appclass="technologies"
     />
     <App 
-    route="/src/assets/appicons/git.svg"
+    route={GitIcon.src}
     appname="Git"
     appclass="technologies"
     />
     <App 
-    route="/src/assets/appicons/figma.svg"
+    route={FigmaIcon.src}
     appname="Figma"
     appclass="technologies"
     />
     <App 
-    route="/src/assets/appicons/html5.svg"
+    route={Html5Icon.src}
     appname="HTML5"
     appclass="technologies"
     />
     <App 
-    route="/src/assets/appicons/css.svg"
+    route={CssIcon.src}
     appname="CSS"
     appclass="technologies"
     />
     <App 
-    route="/src/assets/appicons/tailwindcss.svg"
+    route={TailwindIcon.src}
     appname="Tailwind CSS"
     appclass="technologies"
     />
     <App 
-    route="/src/assets/appicons/mysql.svg"
+    route={MysqlIcon.src}
     appname="MySQL"
     appclass="technologies"
     />
