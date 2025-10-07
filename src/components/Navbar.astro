@@ -1,4 +1,9 @@
 
+---
+import LightModeIcon from '../assets/light_mode.svg';
+import NightModeIcon from '../assets/night_mode.svg';
+---
+
 <nav class="hidden sm:inline fixed z-1 inset-x-0 mx-auto px-8 top-6 max-w-3xl w-full">
   <div class="dark:bg-black/80 bg-white/80 backdrop-blur-xs border-2 dark:border-white/40 border-black/80 rounded-full px-6 py-2 shadow-xl shadow-black/15 dark:shadow-white/15">
     <div class="flex flex-row items-center justify-between">
@@ -42,12 +47,12 @@
           class="relative z-20 cursor-pointer p-2 rounded-full active:ring-2"
         >
           <img
-            src="../src/assets/light_mode.svg"
+            src={LightModeIcon.src}
             alt="Light mode"
             class="hidden dark:inline"
           />
           <img
-            src="../src/assets/night_mode.svg"
+            src={NightModeIcon.src}
             alt="Dark mode"
             class="dark:hidden"
           />
