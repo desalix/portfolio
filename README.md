@@ -10,13 +10,13 @@
 
 ## 💡 About
 
-This is the personal **portfolio / website** repository for *Desalix*. It’s built using **Astro**, with modern web tooling, aiming to showcase projects, blog posts, and contact information in a clean, performant, and responsive way.  
+Personal **portfolio / website** repository for *Desalix*. It’s built using **Astro**, with modern web tooling, aiming to showcase projects, blog posts, and contact information in a clean, performant, and responsive way.  
 
 Languages used in this repo: **Astro**, **Tailwind CSS**, and **JavaScript** 
 
 ---
 
-## ✨ Features
+## Features
 
 - Fast loading, optimized static site  
 - Responsive design (mobile / tablet / desktop)  
@@ -32,11 +32,9 @@ Languages used in this repo: **Astro**, **Tailwind CSS**, and **JavaScript**
 
 | Layer | Technology |
 |-------|------------|
-| Framework / Generator | Astro |
-| Markup / Templates | `.astro` components & pages |
-| Scripting | JavaScript |
+| Framework| Astro |
 | Styles | CSS / Tailwind|
 | Build & Tooling | Vite (via Astro), npm / pnpm |
-| Deployment | Static hosting (Netlify) |
+| Deployment | Cloudflare |
 
 ---
