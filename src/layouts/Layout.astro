@@ -2,17 +2,31 @@
 import "../styles/global.css";
 import Navbar from "../components/Navbar.astro"
 import Footer from "../components/Footer.astro"
+
+const title = "Diego De Salas - Portfolio";
+const description = "Computer Engineering and Business Administration student at UPM, Madrid. I build fast, accessible websites with Astro and Tailwind CSS, and write Java.";
+// Only emit a canonical URL once `site` is set in astro.config.mjs; a relative one is useless.
+const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : undefined;
 ---
 
 <!doctype html>
 <html lang="en" class="dark">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.png" />
-		<link rel="preload" as="image" href="/BGs/bg-light.png" fetchpriority="high">
-		<link rel="preload" as="image" href="/BGs/bg-dark.png" fetchpriority="high">
-		<title>Diego De Salas - Portfolio</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		{canonical && <link rel="canonical" href={canonical} />}
+		<link rel="icon" type="image/png" href="/favicon.png" />
+
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:locale" content="en_GB" />
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">

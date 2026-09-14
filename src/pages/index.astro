@@ -1,34 +1,252 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
-import Experience from '../components/Experience.astro';
-import Projects from '../components/Projects.astro';
-import Academics from '../components/Academics.astro';
-import Technologies from '../components/Technologies.astro';
+import XPcard from '../components/XPcard.astro';
+
+import autoclubImg from '../assets/media/autoclub.png';
+import finsaverImg from '../assets/media/finsaver.png';
+
+import XIcon from '../assets/X.svg';
+import LinkedinIcon from '../assets/Linkedin.svg';
+import GitHubIcon from '../assets/GitHub.svg';
+
+import JavaIcon from '../assets/appicons/java.svg';
+import PythonIcon from '../assets/appicons/python.svg';
+import MysqlIcon from '../assets/appicons/mysql.svg';
+import Html5Icon from '../assets/appicons/html5.svg';
+import CssIcon from '../assets/appicons/css.svg';
+import TailwindIcon from '../assets/appicons/tailwindcss.svg';
+import GitIcon from '../assets/appicons/git.svg';
+import LinuxIcon from '../assets/appicons/linux.svg';
+import FigmaIcon from '../assets/appicons/figma.svg';
+import WordIcon from '../assets/appicons/word.svg';
+import ExcelIcon from '../assets/appicons/excel.svg';
+import PowerpointIcon from '../assets/appicons/powerpoint.svg';
+
+const EMAIL = 'diegodesalasvh@gmail.com';
+
+const SOCIALS = [
+	{ href: 'https://x.com/desalix1', icon: XIcon, label: 'X (Twitter)' },
+	{ href: 'https://www.linkedin.com/in/diego-de-salas/', icon: LinkedinIcon, label: 'LinkedIn' },
+	{ href: 'https://github.com/desalix', icon: GitHubIcon, label: 'GitHub' },
+];
+
+const PROJECTS = [
+	{
+		img: autoclubImg,
+		imgalt: "Autoclub Trackdays homepage",
+		cardtitle: "Autoclub Trackdays",
+		cardsubtitle: "Client work · Live",
+		href: "https://autoclubtrackdays.com",
+		cardtext: "Autoclub Trackdays is a live production site I built for a Madrid car dealership with over 25 years in the trade. It's an Astro and Tailwind CSS build deployed on Cloudflare that ships with zero client-side JavaScript: a searchable catalogue with a dedicated page per vehicle, plus sections for buying, selling and custom orders. Performance and SEO drove most of the decisions: structured data for search engines, link previews for WhatsApp and Instagram, and responsive WebP photography served from its own image domain. It also ships with a custom admin panel so the dealership can add, edit and remove cars from the catalogue themselves, no developer needed.",
+		labels: ["Astro", "Tailwind CSS", "Cloudflare", "Admin Panel", "SEO", "Performance", "Responsive Design", "Client Work"]
+	},
+	{
+		img: finsaverImg,
+		imgalt: "Finsaver desktop application",
+		cardtitle: "Finsaver",
+		cardsubtitle: "Personal project",
+		cardtext: "Finsaver was born from the idea of learning new skills and putting my knowledge to the test. It's an app made to make tracking spending and saving money easier, especially for people without much financial background. Built in Java following OOP principles, with JavaFX for the interface and a MySQL database behind it for transactions, clients and expenses. It pushed me to confront the real problems that show up over the life of a project rather than just the tutorial version of them.",
+		labels: ["Java", "JavaFX", "OOP", "MySQL", "UI/UX", "Problem-Solving"]
+	}
+];
+
+const ROLES = [
+	{
+		title: "New Line Events",
+		role: "Hospitality Host",
+		date: "January 2026 - Present",
+		text: "VIP Hospitality Host for Real Madrid across football and basketball matchdays and corporate events. Guest relations, protocol, and catering coordination in premium areas."
+	},
+	{
+		title: "Asegramar",
+		role: "Administrator",
+		date: "July 2024 - January 2025",
+		text: "Administrative support within a multidisciplinary team, handling office procedures and property management. Client documentation, records management, and internal coordination."
+	},
+	{
+		title: "Personal Tutor",
+		role: "Mathematics & Spanish",
+		date: "September 2023 - May 2024",
+		text: "One-on-one tutoring in Mathematics and Spanish for foreign students aged 10-13 living in Spain. Curriculum adaptation, language support, and progress tracking."
+	}
+];
+
+const STUDIES = [
+	{
+		school: "Universidad Politécnica de Madrid (UPM)",
+		date: "2024 - Present",
+		text: "I am currently pursuing a double degree in Computer Engineering and Business Administration. The programme lets me develop strong technical problem-solving skills while gaining a strategic perspective in management and economics, preparing me to bridge the gap between technology and business."
+	},
+	{
+		school: "Prospect Mountain High School, USA",
+		date: "2022 - 2023",
+		text: "I completed my high school studies in New Hampshire, USA, an experience that significantly strengthened my English proficiency and cultural adaptability. Living abroad taught me to be independent, responsible and self-sufficient, while broadening my global outlook and my ability to connect with people from diverse backgrounds."
+	},
+	{
+		school: "IES Guadalpín, Marbella",
+		date: "2021 - 2022",
+		text: "I focused on mathematics and technology, building a solid academic foundation for my future double degree. It was also an important personal experience, giving me the opportunity to live in a new city and adapt to a different environment, further developing my resilience and adaptability."
+	}
+];
+
+const TECHS = [
+	{ icon: JavaIcon, name: "Java" },
+	{ icon: PythonIcon, name: "Python" },
+	{ icon: MysqlIcon, name: "MySQL" },
+	{ icon: Html5Icon, name: "HTML5" },
+	{ icon: CssIcon, name: "CSS" },
+	{ icon: TailwindIcon, name: "Tailwind CSS" },
+	{ icon: GitIcon, name: "Git" },
+	{ icon: LinuxIcon, name: "Linux" },
+	{ icon: FigmaIcon, name: "Figma" },
+	{ icon: WordIcon, name: "Word" },
+	{ icon: ExcelIcon, name: "Excel" },
+	{ icon: PowerpointIcon, name: "PowerPoint" }
+];
 ---
 
 <Layout>
-	<div class="mt-32 max-w-7xl mx-auto px-4 py-6">
-		<Card />
+	<div class="mx-auto max-w-6xl px-4 pt-32 pb-6 md:pt-40">
 
-		<div id="experience" class="mt-24">
-			<h2 class="section-title">Experience</h2>
-			<Experience />
-		</div>
+		<!-- Hero -->
+		<section>
+			<h1 class="font-display text-4xl font-bold leading-[1.05] tracking-tight text-ink sm:text-6xl md:text-7xl">
+				Diego De Salas
+			</h1>
 
-		<div id="projects" class="mt-24">
+			<div class="mx-auto max-w-5xl">
+			<p class="mt-3 text-base text-ink-muted md:text-lg">
+				Computer Engineering &amp; Business Administration · UPM, Madrid
+			</p>
+
+			<p class="mt-5 text-sm leading-relaxed text-ink-muted md:text-base">
+				I'm a college student working on a double degree in Computer Engineering and Business Administration.
+				I have experience coding in Java, especially OOP, and more recently I've moved into frontend
+				development, where I now build and ship real sites for clients. Through my Business Administration
+				studies I've built a solid foundation in management, economics and organizational strategy.
+				People would describe me as responsible, polite and open-minded, and I'm bilingual in Spanish
+				and English, which helps me connect with more people and projects.
+			</p>
+
+			<div class="mt-7 flex flex-wrap items-center gap-4">
+				<a href="#projects" class="btn-primary">View projects</a>
+				<a href={`mailto:${EMAIL}`} class="btn-ghost">Get in touch</a>
+				<ul class="flex flex-row items-center gap-2 sm:ms-auto">
+					{SOCIALS.map(social => (
+						<li>
+							<a href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.label} class="socials">
+								<img src={social.icon.src} alt="" aria-hidden="true" class="socials-svg" />
+							</a>
+						</li>
+					))}
+				</ul>
+			</div>
+			</div>
+		</section>
+
+		<!-- Projects -->
+		<section id="projects" class="reveal mt-24 scroll-mt-28">
 			<h2 class="section-title">Projects</h2>
-			<Projects />
-		</div>
+			<div class="mt-2 mb-10 h-px bg-hairline"></div>
 
-		<div id="studies" class="mt-24">
+			<div class="mx-auto max-w-5xl">
+			<div class="grid gap-8 sm:grid-cols-2">
+				{PROJECTS.map(project => (<XPcard {...project} />))}
+			</div>
+			</div>
+		</section>
+
+		<!-- Experience -->
+		<section id="experience" class="reveal mt-24 scroll-mt-28">
+			<h2 class="section-title">Experience</h2>
+			<div class="mt-2 mb-10 h-px bg-hairline"></div>
+
+			<div class="mx-auto max-w-5xl">
+			<div class="flex flex-col gap-4">
+				{ROLES.map(item => (
+					<div class="surface px-6 py-5">
+						<div class="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
+							<h3 class="font-display text-lg font-semibold text-ink md:text-xl">
+								{item.title}
+								<span class="font-body text-sm font-normal text-accent"> · {item.role}</span>
+							</h3>
+							<span class="shrink-0 text-xs text-ink-muted tabular-nums md:text-sm">{item.date}</span>
+						</div>
+						<p class="mt-3 text-sm leading-relaxed text-ink-muted md:text-base">{item.text}</p>
+					</div>
+				))}
+			</div>
+			</div>
+		</section>
+
+		<!-- Academic formation -->
+		<section id="studies" class="reveal mt-24 scroll-mt-28">
 			<h2 class="section-title">Academic Formation</h2>
-			<Academics />
-		</div>
+			<div class="mt-2 mb-10 h-px bg-hairline"></div>
 
-		<div id="skills" class="mt-24">
-    		<h2 class="section-title">Technologies</h2>	
-			<Technologies />
-		</div>
+			<div class="mx-auto max-w-5xl">
+			<ol class="relative border-s border-hairline ps-8">
+				{STUDIES.map(item => (
+					<li class="mb-10 last:mb-0">
+						<div class="timeline-dot"></div>
+						<div class="flex flex-col gap-1 md:flex-row md:items-baseline md:justify-between md:gap-4">
+							<h3 class="timeline-title">{item.school}</h3>
+							<span class="timeline-date shrink-0">{item.date}</span>
+						</div>
+						<p class="mt-3 text-sm leading-relaxed text-ink-muted md:text-base">{item.text}</p>
+					</li>
+				))}
+			</ol>
+			</div>
+		</section>
+
+		<!-- Technologies -->
+		<section id="skills" class="reveal mt-24 scroll-mt-28">
+			<h2 class="section-title">Technologies</h2>
+			<div class="mt-2 mb-10 h-px bg-hairline"></div>
+
+			<div class="mx-auto max-w-5xl">
+				<div class="mx-auto grid max-w-2xl grid-cols-3 place-items-center gap-y-8 px-2 py-4 sm:grid-cols-4 sm:gap-x-8 sm:gap-y-10">
+					{TECHS.map(tech => (
+						<div class="group flex flex-col items-center gap-2">
+							<div class="technologies group-hover:-translate-y-1 group-hover:border-accent">
+								<img src={tech.icon.src} alt={tech.name} loading="lazy" decoding="async" />
+							</div>
+							<p class="text-center text-xs md:text-sm text-ink-muted transition-colors duration-200 group-hover:text-ink">
+								{tech.name}
+							</p>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- Contact -->
+		<section id="contact" class="reveal mt-24 scroll-mt-28">
+			<h2 class="section-title">Get in touch</h2>
+			<div class="mt-2 mb-10 h-px bg-hairline"></div>
+
+			<div class="mx-auto max-w-5xl">
+				<p class="text-sm leading-relaxed text-ink-muted md:text-base">
+					I'm always open to internships, junior roles and freelance work, especially anything
+					involving frontend development. If you have a project in mind or just want to talk,
+					my inbox is open.
+				</p>
+
+				<div class="mt-6 flex flex-wrap items-center gap-4">
+					<a href={`mailto:${EMAIL}`} class="btn-primary">Email me</a>
+					<ul class="flex flex-row items-center gap-2">
+						{SOCIALS.map(social => (
+							<li>
+								<a href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.label} class="socials">
+									<img src={social.icon.src} alt="" aria-hidden="true" class="socials-svg" />
+								</a>
+							</li>
+						))}
+					</ul>
+				</div>
+			</div>
+		</section>
+
 	</div>
 </Layout>

@@ -1,64 +1,69 @@
 ---
 import LightModeIcon from '../assets/light_mode.svg';
 import NightModeIcon from '../assets/night_mode.svg';
+
+const LINKS = [
+  { href: '#projects', label: 'Projects' },
+  { href: '#experience', label: 'Experience' },
+  { href: '#studies', label: 'About' },
+  { href: '#skills', label: 'Skills' },
+  { href: '#contact', label: 'Contact' },
+]
 ---
 
-<nav class="hidden sm:inline fixed z-1 inset-x-0 mx-auto px-8 top-6 max-w-3xl w-full">
-  <div class="dark:bg-black/80 bg-white/80 backdrop-blur-xs border-2 dark:border-white/40 border-black/80 rounded-full px-6 py-2 shadow-xl shadow-black/15 dark:shadow-white/15">
-    <div class="flex flex-row items-center justify-between">
-      <!-- Left HOME button -->
-      <div class="text-center">
-        <a href="/" class="dark:text-gray-400 text-gray-700 dark:hover:text-white hover:text-black hover:font-medium transition-all duration-300">
-          Home
-        </a>
+<nav class="fixed inset-x-0 top-4 z-50 mx-auto w-full max-w-3xl px-4">
+  <div class="surface rounded-full px-3 py-2 sm:px-5">
+    <div class="flex flex-row items-center justify-between gap-2">
+      <a href="/" class="font-display px-2 text-sm font-semibold text-ink transition-opacity hover:opacity-70">
+        DDS
+      </a>
+
+      <!-- Desktop links with the sliding hover pill -->
+      <div class="relative hidden items-center sm:flex" data-hover-pill>
+        <div
+          id="hover-pill"
+          class="pointer-events-none absolute top-0 left-0 rounded-full opacity-0 transition-all duration-300 ease-out will-change-transform"
+          style="background-color: var(--accent-tint);"
+        ></div>
+
+        {LINKS.map(link => (<a href={link.href} class="nav-link">{link.label}</a>))}
       </div>
 
-      <!-- Middle navigation items -->
-      <div class="flex justify-center items-center relative" data-hover-pill>
-        <div id="hover-pill"
-             class="pointer-events-none absolute top-0 left-0 rounded-xl dark:bg-gray-700/90 bg-gray-200/90
-              opacity-0 transition-all duration-300 ease-out will-change-transform">
-        </div>
-
-        <div>
-          <a href="#projects" class="nav-link">
-            Projects
-          </a>
-        </div> 
-        <div>
-          <a href="#studies" class="nav-link">
-            About
-          </a>
-        </div>
-        <div>
-          <a href="#skills" class="nav-link">
-            Skills
-          </a>
-        </div>
-      </div>
-
-      <!-- Color MODE button -->
-      <div class="flex flex-row text-center gap-x-4">
+      <div class="flex flex-row items-center gap-1">
         <button
           id="theme-toggle"
           type="button"
-          aria-label="Toggle theme"
-          class="relative z-20 cursor-pointer p-2 rounded-full active:ring-2"
+          aria-label="Toggle colour theme"
+          class="cursor-pointer rounded-full p-2 transition-colors hover:bg-hairline"
         >
-          <img
-            src={LightModeIcon.src}
-            alt="Light mode"
-            class="hidden dark:inline"
-          />
-          <img
-            src={NightModeIcon.src}
-            alt="Dark mode"
-            class="dark:hidden"
-          />
+          <img src={LightModeIcon.src} alt="" aria-hidden="true" class="hidden h-5 w-5 dark:inline" />
+          <img src={NightModeIcon.src} alt="" aria-hidden="true" class="h-5 w-5 dark:hidden" />
         </button>
-      
-        
+
+        <!-- Mobile menu trigger -->
+        <button
+          id="menu-toggle"
+          type="button"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          class="cursor-pointer rounded-full p-2 transition-colors hover:bg-hairline sm:hidden"
+        >
+          <svg class="h-5 w-5 text-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16" />
+          </svg>
+        </button>
+      </div>
     </div>
+  </div>
+
+  <!-- Mobile dropdown -->
+  <div id="mobile-menu" hidden class="surface mt-2 flex flex-col p-2 sm:hidden">
+    {LINKS.map(link => (
+      <a href={link.href} class="rounded-xl px-4 py-3 text-sm text-ink-muted transition-colors hover:bg-hairline hover:text-ink" data-mobile-link>
+        {link.label}
+      </a>
+    ))}
   </div>
 </nav>
 
@@ -75,42 +80,56 @@ import NightModeIcon from '../assets/night_mode.svg';
     setTheme(!root.classList.contains("dark"));
   });
 
+  // Mobile menu
+  const menuToggle = document.getElementById("menu-toggle");
+  const mobileMenu = document.getElementById("mobile-menu");
 
-  document.addEventListener('DOMContentLoaded', () => {
-    const wrapper = document.querySelector<HTMLElement>('[data-hover-pill]');
-    if (!wrapper) return;
-    const wrapperEl: HTMLElement = wrapper;
+  if (menuToggle && mobileMenu) {
+    const setMenu = (open: boolean) => {
+      mobileMenu.hidden = !open;
+      menuToggle.setAttribute("aria-expanded", String(open));
+    };
 
-    const pill = wrapperEl.querySelector<HTMLElement>('#hover-pill');
-    if (!pill) return;
-    const pillEl: HTMLElement = pill;
+    menuToggle.addEventListener("click", () => {
+      setMenu(mobileMenu.hidden);
+    });
 
-    pillEl.style.top = '0px';
-    pillEl.style.left = '0px';
+    // Close after picking a destination, or when tapping outside the nav.
+    mobileMenu.querySelectorAll("[data-mobile-link]").forEach((link) => {
+      link.addEventListener("click", () => setMenu(false));
+    });
 
-    const links = Array.from(
-      wrapperEl.querySelectorAll<HTMLAnchorElement>('.nav-link')
-    );
-    if (links.length === 0) return;
+    document.addEventListener("click", (event) => {
+      const target = event.target as Node;
+      if (!mobileMenu.hidden && !mobileMenu.contains(target) && !menuToggle.contains(target)) {
+        setMenu(false);
+      }
+    });
 
-    function movePill(toEl: HTMLElement) {
-      const wrapBox = wrapperEl.getBoundingClientRect();
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") setMenu(false);
+    });
+  }
+
+  // Sliding pill that follows the hovered desktop nav link.
+  const wrapper = document.querySelector<HTMLElement>('[data-hover-pill]');
+  const pill = wrapper?.querySelector<HTMLElement>('#hover-pill');
+
+  if (wrapper && pill) {
+    const movePill = (toEl: HTMLElement) => {
+      const wrapBox = wrapper.getBoundingClientRect();
       const box = toEl.getBoundingClientRect();
-      const x = box.left - wrapBox.left;
-      const y = box.top - wrapBox.top;
+      pill.style.transform = `translate(${box.left - wrapBox.left}px, ${box.top - wrapBox.top}px)`;
+      pill.style.width = `${box.width}px`;
+      pill.style.height = `${box.height}px`;
+      pill.style.opacity = '1';
+    };
 
-      pillEl.style.transform = `translate(${x}px, ${y}px)`;
-      pillEl.style.width = `${box.width}px`;
-      pillEl.style.height = `${box.height}px`;
-      pillEl.style.opacity = '1';
-    }
-
-    links.forEach((a) => {
+    wrapper.querySelectorAll<HTMLAnchorElement>('.nav-link').forEach((a) => {
       a.addEventListener('mouseenter', () => movePill(a));
+      a.addEventListener('focus', () => movePill(a));
     });
 
-    wrapperEl.addEventListener('mouseleave', () => {
-      pillEl.style.opacity = '0';
-    });
-  });
+    wrapper.addEventListener('mouseleave', () => { pill.style.opacity = '0'; });
+  }
 </script>

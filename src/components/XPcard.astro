@@ -1,39 +1,52 @@
 ---
-import Label from '../components/labels.astro'
+import { Image } from 'astro:assets'
 
 export interface Props {
-  imgsrc: string
+  img: ImageMetadata
   imgalt: string
   cardtitle: string
+  cardsubtitle: string
   cardtext: string
   labels: string[]
+  href?: string
 }
 
-const { imgsrc, imgalt, cardtitle, cardtext, labels = [] } = Astro.props
+const { img, imgalt, cardtitle, cardsubtitle, cardtext, labels = [], href } = Astro.props
+
+// Linked cards become anchors so the whole surface is clickable; the rest stay plain divs.
+const Tag = href ? 'a' : 'div'
+const linkProps = href ? { href, target: '_blank', rel: 'noopener noreferrer' } : {}
 ---
 
-<div class="xp-card">
-    <div class="m-6">
-        <img 
-        src={imgsrc} 
-        alt={imgalt}
-        class="rounded-xl"
-        >
+<Tag class="xp-card group" {...linkProps}>
+    <div class="relative overflow-hidden border-b border-hairline">
+        <Image
+            src={img}
+            alt={imgalt}
+            widths={[480, 800]}
+            sizes="(max-width: 768px) 100vw, 420px"
+            class="aspect-[16/9] w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+        />
+        {href && (
+            <span class="absolute top-3 right-3 inline-flex items-center gap-1.5 rounded-full border border-hairline bg-surface px-3 py-1 text-xs font-medium text-ink backdrop-blur-md">
+                Live site
+                <svg class="h-3 w-3 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M7 17 17 7M9 7h8v8" />
+                </svg>
+            </span>
+        )}
     </div>
 
-    <div class="m-6 space-y-4">
-        <h3 class="font-semibold">
-            {cardtitle}
-        </h3>
-    
-        <p class="text-justify">
-            {cardtext}
-        </p>
-    </div>
+    <div class="flex flex-1 flex-col gap-3 p-6">
+        <div>
+            <h3 class="font-display text-lg font-semibold text-ink">{cardtitle}</h3>
+            <p class="mt-0.5 text-xs uppercase tracking-[0.14em] text-accent">{cardsubtitle}</p>
+        </div>
 
-    <div class="flex flex-row flex-wrap justify-center items-center mt-12 gap-3 p-4">
-        {labels.map(label => (
-            <Label aux={label} />
-        ))}
+        <p class="text-sm leading-relaxed text-ink-muted">{cardtext}</p>
+
+        <div class="mt-auto flex flex-row flex-wrap gap-2 pt-4">
+            {labels.map(label => (<span class="label-chip">{label}</span>))}
+        </div>
     </div>
-</div>
+</Tag>
