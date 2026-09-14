@@ -226,25 +226,30 @@ const TECHS = [
 			<h2 class="section-title">Get in touch</h2>
 			<div class="mt-2 mb-10 h-px bg-hairline"></div>
 
-			<div class="mx-auto max-w-5xl">
-				<p class="text-sm leading-relaxed text-ink-muted md:text-base">
-					I'm always open to internships, junior roles and freelance work, especially anything
-					involving frontend development. If you have a project in mind or just want to talk,
-					my inbox is open.
+			<div class="mx-auto max-w-4xl">
+				<p class="max-w-2xl text-base text-ink-muted md:text-lg">
+					I'm open to internships, junior roles and freelance work. If you have a project in mind
+					or just want to talk, my inbox is open.
 				</p>
 
-				<div class="mt-6 flex flex-wrap items-center gap-4">
-					<a href={`mailto:${EMAIL}`} class="btn-primary">Email me</a>
-					<ul class="flex flex-row items-center gap-2">
-						{SOCIALS.map(social => (
-							<li>
-								<a href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.label} class="socials">
-									<img src={social.icon.src} alt="" aria-hidden="true" class="socials-svg" />
-								</a>
-							</li>
-						))}
-					</ul>
-				</div>
+				<!-- The address itself is the call to action, so it carries the weight. -->
+				<a
+					href={`mailto:${EMAIL}`}
+					class="group mt-8 inline-flex max-w-full flex-wrap items-baseline gap-3 font-display text-lg font-semibold tracking-tight break-all text-ink transition-colors duration-200 hover:text-accent sm:text-2xl md:text-3xl lg:text-4xl"
+				>
+					<span class="border-b border-hairline pb-1 transition-colors duration-200 group-hover:border-accent">
+						{EMAIL}
+					</span>
+					<svg
+						class="h-5 w-5 shrink-0 self-center transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1 md:h-6 md:w-6"
+						viewBox="0 0 24 24" fill="none" stroke="currentColor"
+						stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"
+					>
+						<path d="M7 17 17 7M9 7h8v8" />
+					</svg>
+				</a>
+
+				<p class="mt-8 text-sm text-ink-muted">Based in Madrid, Spain</p>
 			</div>
 		</section>
 
