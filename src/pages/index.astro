@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import XPcard from '../components/XPcard.astro';
 
 import autoclubImg from '../assets/media/autoclub.png';
+import shiftImg from '../assets/media/shift-cover.png';
 import finsaverImg from '../assets/media/finsaver.png';
 
 import XIcon from '../assets/X.svg';
@@ -31,6 +32,16 @@ const SOCIALS = [
 ];
 
 const PROJECTS = [
+	{
+		img: shiftImg,
+		imgalt: "Shift iOS app: calendar, assistant and income screens",
+		cardtitle: "Shift",
+		cardsubtitle: "Personal project · iOS",
+		href: "https://github.com/desalix/Shift",
+		badge: "GitHub",
+		cardtext: "Shift is a native iOS app I built for people whose work schedule changes week to week. It tracks shifts on a monthly calendar, works out gross income from hourly or fixed rates, and handles recurring shifts and reusable presets. It also doubles as a study planner, with subjects, exams and assignments alongside work. Its built-in assistant runs on Claude: you describe your schedule in plain language and it proposes the entries, which you confirm before anything is saved, with your API key kept in the device Keychain. Built with SwiftUI and SwiftData, it includes a home-screen to-do widget, JSON export and full English and Spanish localization, and it keeps all data on the device.",
+		labels: ["Swift", "SwiftUI", "SwiftData", "WidgetKit", "Claude API", "iOS", "Localization"]
+	},
 	{
 		img: autoclubImg,
 		imgalt: "Autoclub Trackdays homepage",
