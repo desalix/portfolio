@@ -6,7 +6,6 @@ import autoclubImg from '../assets/media/autoclub.png';
 import shiftImg from '../assets/media/shift-cover.png';
 import finsaverImg from '../assets/media/finsaver.png';
 
-import XIcon from '../assets/X.svg';
 import LinkedinIcon from '../assets/Linkedin.svg';
 import GitHubIcon from '../assets/GitHub.svg';
 
@@ -23,10 +22,9 @@ import WordIcon from '../assets/appicons/word.svg';
 import ExcelIcon from '../assets/appicons/excel.svg';
 import PowerpointIcon from '../assets/appicons/powerpoint.svg';
 
-const EMAIL = 'diegodesalasvh@gmail.com';
+const EMAIL = 'info@diegodesalas.com';
 
 const SOCIALS = [
-	{ href: 'https://x.com/desalix1', icon: XIcon, label: 'X (Twitter)' },
 	{ href: 'https://www.linkedin.com/in/diego-de-salas/', icon: LinkedinIcon, label: 'LinkedIn' },
 	{ href: 'https://github.com/desalix', icon: GitHubIcon, label: 'GitHub' },
 ];
@@ -37,8 +35,8 @@ const PROJECTS = [
 		imgalt: "Shift iOS app: calendar, assistant and income screens",
 		cardtitle: "Shift",
 		cardsubtitle: "Personal project · iOS",
-		href: "https://github.com/desalix/Shift",
-		badge: "GitHub",
+		href: "https://shift.diegodesalas.com",
+		badge: "Live site",
 		cardtext: "Shift is a native iOS app I built for people whose work schedule changes week to week. It tracks shifts on a monthly calendar, works out gross income from hourly or fixed rates, and handles recurring shifts and reusable presets. It also doubles as a study planner, with subjects, exams and assignments alongside work. Its built-in assistant runs on Claude: you describe your schedule in plain language and it proposes the entries, which you confirm before anything is saved, with your API key kept in the device Keychain. Built with SwiftUI and SwiftData, it includes a home-screen to-do widget, JSON export and full English and Spanish localization, and it keeps all data on the device.",
 		labels: ["Swift", "SwiftUI", "SwiftData", "WidgetKit", "Claude API", "iOS", "Localization"]
 	},
@@ -140,8 +138,7 @@ const TECHS = [
 			</p>
 
 			<div class="mt-7 flex flex-wrap items-center gap-4">
-				<a href="#projects" class="btn-primary">View projects</a>
-				<a href={`mailto:${EMAIL}`} class="btn-ghost">Get in touch</a>
+				<a href={`mailto:${EMAIL}`} class="btn-primary text-[16px]">Get in touch</a>
 				<ul class="flex flex-row items-center gap-2 sm:ms-auto">
 					{SOCIALS.map(social => (
 						<li>
